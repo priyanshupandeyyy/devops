@@ -407,4 +407,6 @@ What are .env variables:
 &#x09;	it enables us to configure environment dynamically 
 
 &#x09;	`They can be set with` \*\*-e\*\*\* `passed as an argument`
+     
+docker run -it -e MY_NAME-Priyanshu ubuntu bash
 
