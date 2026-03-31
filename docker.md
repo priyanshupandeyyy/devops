@@ -214,3 +214,5 @@ it enables us to configure environment dynamically
 They can be set with **-e*** passed as an argument
 
 docker run -it -e MY_NAME-Priyanshu ubuntu bash
+
+we can view said variables using echo $MY_NAME
