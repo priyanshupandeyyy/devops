@@ -236,13 +236,55 @@ MYSQL_USER → Custom user for the database
 MYSQL_PASSWORD → Password for the custom user
 
 
-Passing Environment Variables form Host System
+### Passing Environment Variables from Host System to Docker Container
 
-Export APP_PORT=8000 (Ubuntu)
-PowerShell - $env:APP_PORT=8000
-checkHost variable - echo $env:APP_PORT
+#### Step 1: Set Environment Variable on Host
 
-Step - 2
+**Ubuntu/Linux:**
 
+```bash
+export APP_PORT=8000
+```
+
+**PowerShell (Windows):**
+
+```powershell
+$env:APP_PORT=8000
+```
+
+**Check Variable:**
+
+```bash
+echo $APP_PORT        # Ubuntu/Linux
+echo $env:APP_PORT    # PowerShell
+```
+
+---
+
+#### Step 2: Pass Variable to Docker Container
+
+**Ubuntu/Linux:**
+
+```bash
+docker run -e APP_PORT=$APP_PORT nginx env
+```
+
+**PowerShell (Windows):**
+
+```powershell
 docker run -e APP_PORT=$env:APP_PORT nginx env
-docker run -e APP_PORT=$APP_PORT nginx env (Ubuntu)
+```
+
+---
+
+### Explanation
+
+* `-e` → Used to pass environment variables to the container
+* `APP_PORT` → Variable defined on the host system
+* `nginx env` → Runs nginx container and prints environment variables
+
+### Notes
+
+* Make sure the variable is set before running the container
+* This method helps in dynamic configuration of containers
+* Useful for DevOps and microservices setups
