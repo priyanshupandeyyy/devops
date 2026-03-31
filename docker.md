@@ -216,3 +216,23 @@ They can be set with **-e*** passed as an argument
 docker run -it -e MY_NAME-Priyanshu ubuntu bash
 
 we can view said variables using echo $MY_NAME
+
+
+MySQL Container Setup
+
+Run the following command to start a MySQL container:
+
+docker run -d \
+  -e MYSQL_ROOT_PASSWORD=root124 \
+  -e MYSQL_DATABASE=college \
+  -e MYSQL_USER=admin \
+  -e MYSQL_PASSWORD=admin123 \
+  mysql:8
+  
+Environment Variables Explained
+MYSQL_ROOT_PASSWORD → Password for the root user
+MYSQL_DATABASE → Database that will be created automatically
+MYSQL_USER → Custom user for the database
+MYSQL_PASSWORD → Password for the custom user
+
+
