@@ -236,3 +236,13 @@ MYSQL_USER → Custom user for the database
 MYSQL_PASSWORD → Password for the custom user
 
 
+Passing Environment Variables form Host System
+
+Export APP_PORT=8000 (Ubuntu)
+PowerShell - $env:APP_PORT=8000
+checkHost variable - echo $env:APP_PORT
+
+Step - 2
+
+docker run -e APP_PORT=$env:APP_PORT nginx env
+docker run -e APP_PORT=$APP_PORT nginx env (Ubuntu)
