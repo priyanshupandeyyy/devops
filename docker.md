@@ -334,3 +334,57 @@ exit
 * Environment variables in Docker are **temporary**
 * They exist only for the lifecycle of that container
 * This ensures containers remain **stateless and portable**
+
+
+### Using `.env` File for Environment Variables (Best Practice)
+
+Instead of passing variables manually, you can store them in a `.env` file.
+
+---
+
+#### Step 1: Create `.env` File
+
+```env id="envfile"
+APP_PORT=3000
+DB_USER=admin
+DB_PASS=secret123
+```
+
+---
+
+#### Step 2: Run Container Using `.env` File
+
+```bash id="cmd11"
+docker run --env-file .env ubuntu
+```
+
+**Interactive Mode with Auto Remove:**
+
+```bash id="cmd12"
+docker run -it --rm --env-file .env ubuntu
+```
+
+---
+
+### Explanation
+
+* `--env-file .env` → Loads all environment variables from the file
+* `-it` → Runs container in interactive mode
+* `--rm` → Automatically removes container after it stops
+
+---
+
+### Advantages
+
+* Cleaner and more organized configuration
+* Easy to manage multiple variables
+* Avoids exposing sensitive data in command line
+* Reusable across different containers
+
+---
+
+### Notes
+
+* `.env` file should be in the same directory or provide full path
+* Keep `.env` file secure (add to `.gitignore` if needed)
+
