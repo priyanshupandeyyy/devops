@@ -289,6 +289,7 @@ docker run -e APP_PORT=$env:APP_PORT nginx env
 * This method helps in dynamic configuration of containers
 * Useful for DevOps and microservices setups
 
+
 ### Class Task 1: Passing Environment Variable in Ubuntu Container
 
 #### Step 1: Run Ubuntu Container with Environment Variable
@@ -334,6 +335,7 @@ exit
 * Environment variables in Docker are **temporary**
 * They exist only for the lifecycle of that container
 * This ensures containers remain **stateless and portable**
+
 
 
 ### Using `.env` File for Environment Variables (Best Practice)
@@ -387,6 +389,7 @@ docker run -it --rm --env-file .env ubuntu
 
 * `.env` file should be in the same directory or provide full path
 * Keep `.env` file secure (add to `.gitignore` if needed)
+
 
 
 ### Port Mapping in Docker (`-p`)
