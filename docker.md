@@ -288,3 +288,49 @@ docker run -e APP_PORT=$env:APP_PORT nginx env
 * Make sure the variable is set before running the container
 * This method helps in dynamic configuration of containers
 * Useful for DevOps and microservices setups
+
+### Class Task 1: Passing Environment Variable in Ubuntu Container
+
+#### Step 1: Run Ubuntu Container with Environment Variable
+
+```bash id="cmd01"
+docker run -it -e COLLEGE=CSE ubuntu
+```
+
+---
+
+#### Step 2: Verify Inside Container
+
+```bash id="cmd02"
+echo $COLLEGE
+```
+
+You should see:
+
+```
+CSE
+```
+
+---
+
+#### Step 3: Stop the Container
+
+```bash id="cmd03"
+exit
+```
+
+---
+
+### What Happened?
+
+* The environment variable `COLLEGE=CSE` was available **only inside the running container**
+* Once the container stops, the variable is **lost**
+* If you start a new container, you need to pass the variable again
+
+---
+
+### Key Concept
+
+* Environment variables in Docker are **temporary**
+* They exist only for the lifecycle of that container
+* This ensures containers remain **stateless and portable**
