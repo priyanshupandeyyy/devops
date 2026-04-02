@@ -388,3 +388,47 @@ docker run -it --rm --env-file .env ubuntu
 * `.env` file should be in the same directory or provide full path
 * Keep `.env` file secure (add to `.gitignore` if needed)
 
+
+### Port Mapping in Docker (`-p`)
+
+#### Syntax
+
+```bash id="cmd21"
+docker run -p <HOST_PORT>:<CONTAINER_PORT> <IMAGE>
+```
+
+---
+
+### Example
+
+```bash id="cmd22"
+docker run -p 8080:80 nginx
+```
+
+---
+
+### Explanation
+
+* `<HOST_PORT>` → Port on your local machine
+* `<CONTAINER_PORT>` → Port inside the container
+* `nginx` → Runs a web server inside container on port 80
+
+👉 This means:
+
+* Access application using: `http://localhost:8080`
+* Requests go to container’s port `80`
+
+---
+
+### Key Points
+
+* Port mapping allows external access to container services
+* Without `-p`, container services are not accessible from host
+* You can map multiple ports if needed
+
+---
+
+### Notes
+
+* Ensure the host port is not already in use
+* Useful for web apps, APIs, databases, etc.
